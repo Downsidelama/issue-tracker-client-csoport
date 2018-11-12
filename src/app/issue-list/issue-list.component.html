@@ -1,36 +1,27 @@
 <h2>Issue list</h2>
+
+<status-filter [status]="selectedStatus"
+  (change)="onFilterChange($event)"
+></status-filter>
+
+<p>
+{{ selectedIssue | json }}
+</p>
 <mat-nav-list>
-  <a mat-list-item routerLink="#">
-    <mat-icon matListIcon style="color: red">fiber_new</mat-icon>
-    <mat-icon matListIcon style="color: orange">build</mat-icon>
-    <mat-icon matListIcon style="color: green">done</mat-icon>
-    <h3 matLine>Issue1</h3>
+  <a *ngFor="let issue of filteredIssues" mat-list-item
+    (click)="selectedIssue = issue" 
+    [class.selected]="issue === selectedIssue"
+  >
+    <mat-icon *ngIf="issue.status === 'NEW'"   matListIcon style="color: red">fiber_new</mat-icon>
+    <mat-icon *ngIf="issue.status === 'DOING'" matListIcon style="color: orange">build</mat-icon>
+    <mat-icon *ngIf="issue.status === 'DONE'"  matListIcon style="color: green">done</mat-icon>
+    <h3 matLine>{{ issue.title }}</h3>
     <small matLine>
-      <mat-icon>place</mat-icon> PC1
-      <mat-icon>access_time</mat-icon> 2018-11-11
+      <mat-icon>place</mat-icon> {{ issue.place }}
+      <mat-icon>access_time</mat-icon> {{ issue.updated_at }}
     </small>
-    <p matLine>Some description about this issue</p>
-  </a>
-  <a mat-list-item routerLink="#">
-    <mat-icon matListIcon style="color: red">fiber_new</mat-icon>
-    <mat-icon matListIcon style="color: orange">build</mat-icon>
-    <mat-icon matListIcon style="color: green">done</mat-icon>
-    <h3 matLine>Issue2</h3>
-    <small matLine>
-      <mat-icon>place</mat-icon> PC2
-      <mat-icon>access_time</mat-icon> 2018-11-11
-    </small>
-    <p matLine>Some description about this issue</p>
-  </a>
-  <a mat-list-item routerLink="#">
-    <mat-icon matListIcon style="color: red">fiber_new</mat-icon>
-    <mat-icon matListIcon style="color: orange">build</mat-icon>
-    <mat-icon matListIcon style="color: green">done</mat-icon>
-    <h3 matLine>Issue3</h3>
-    <small matLine>
-      <mat-icon>place</mat-icon> PC3
-      <mat-icon>access_time</mat-icon> 2018-11-11
-    </small>
-    <p matLine>Some description about this issue</p>
+    <p matLine>{{ issue.description }}</p>
   </a>
 </mat-nav-list>
+
+<issue-form></issue-form>
