@@ -1,6 +1,46 @@
-<form [formGroup]="issueForm">
+<form [formGroup]="issueForm" (ngSubmit)="onSubmit()">
   <mat-form-field>
-    <input matInput placeholder="Place" formControlName="place">
+    <input matInput placeholder="Title" formControlName="title"
+      required
+    >
+    <mat-error *ngIf="title.invalid && (title.dirty || title.touched) && title.errors.required">
+      Title is required!
+    </mat-error>
   </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Place" formControlName="place"
+      required
+      pattern="^PC\d+"
+    >
+    <mat-error *ngIf="place.invalid && (place.dirty || place.touched) && place.errors.required">
+      Place is required!
+    </mat-error>
+    <mat-error *ngIf="place.invalid && (place.dirty || place.touched) && place.errors.pattern">
+      Place must start with PC...!
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <textarea matInput placeholder="Description" formControlName="description"></textarea>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select placeholder="Status" formControlName="status"
+      required
+    >
+      <mat-option value="NEW">New</mat-option>
+      <mat-option value="DOING">Doing</mat-option>
+      <mat-option value="DONE">Done</mat-option>
+    </mat-select>
+    <mat-error *ngIf="status.invalid && (status.dirty || status.touched) && status.errors.required">
+      Status is required!
+    </mat-error>
+  </mat-form-field>
+
+  <button mat-flat-button color="primary" 
+    type="submit"
+    [disabled]="issueForm.invalid"  
+  >Save</button>
+
 </form>
+{{issue | json}}
 {{issueForm.value | json}}
+{{issueForm.valid | json}}

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Issue } from '../issue';
+import { IssueService } from '../issue.service';
 
 @Component({
   selector: 'issue-list',
@@ -8,45 +9,17 @@ import { Issue } from '../issue';
 })
 export class IssueListComponent implements OnInit {
 
-  issues: Issue[] = [
-    {
-      id: 1,
-      title: 'Rossz a gép',
-      place: 'PC6',
-      description: 'Valami leírás',
-      status: 'NEW',
-      updated_at: '2018-11-11',
-    },
-    {
-      id: 2,
-      title: 'Rossz a gép',
-      place: 'PC6',
-      description: 'Valami leírás',
-      status: 'DOING',
-      updated_at: '2018-11-11'
-    },{
-      id: 3,
-      title: 'Rossz a gép',
-      place: 'PC6',
-      description: 'Valami leírás',
-      status: 'DOING',
-      updated_at: '2018-11-11'
-    },{
-      id: 4,
-      title: 'Rossz a gép',
-      place: 'PC6',
-      description: 'Valami leírás',
-      status: 'DONE',
-      updated_at: '2018-11-11'
-    },
-  ]
+  issues: Issue[] = []
   filteredIssues = [];
   selectedStatus = 'DONE';
   selectedIssue = null;
 
-  constructor() { }
+  constructor(
+    private issueService: IssueService
+  ) { }
 
   ngOnInit() {
+    this.issues = this.issueService.getIssues();
     this.filterIssues();
   }
 

@@ -11,7 +11,8 @@ import {
   MatListModule,
   MatButtonToggleModule,
   MatFormFieldModule,
-  MatInputModule
+  MatInputModule,
+  MatSelectModule
 } from '@angular/material';
 import { IssueListComponent } from './issue-list/issue-list.component';
 import { MainPageComponent } from './main-page/main-page.component';
@@ -19,6 +20,7 @@ import { RoutingModule } from './routing/routing.module';
 import { StatusFilterComponent } from './status-filter/status-filter.component';
 import { IssueFormComponent } from './issue-form/issue-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { IssueEditComponent } from './issue-edit/issue-edit.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     IssueListComponent,
     MainPageComponent,
     StatusFilterComponent,
-    IssueFormComponent
+    IssueFormComponent,
+    IssueEditComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +42,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatButtonToggleModule,
     MatFormFieldModule,
     MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
