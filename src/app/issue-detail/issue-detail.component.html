@@ -1,0 +1,20 @@
+<h1>Details</h1>
+
+<dl *ngIf="issue">
+  <dt>Title</dt>
+  <dd>{{issue.title}}</dd>
+  <dt>Place</dt>
+  <dd>{{issue.place}}</dd>
+  <dt>Description</dt>
+  <dd>{{issue.description}}</dd>
+  <dt>Status</dt>
+  <dd>{{issue.status}}</dd>
+  <dt>Created_at</dt>
+  <dd>{{issue.created_at}}</dd>
+  <dt>Updated_at</dt>
+  <dd>{{issue.updated_at}}</dd>
+</dl>
+
+<p>
+<a mat-flat-button color="primary" [routerLink]="['/issues', issue.id, 'edit']">Edit</a>
+</p>

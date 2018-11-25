@@ -5,4 +5,5 @@ export class Issue {
     description = ''
     status = 'NEW'
     updated_at = ''
+    created_at = ''
 }
