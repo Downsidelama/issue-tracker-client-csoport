@@ -51,6 +51,7 @@ export class IssueService {
 
   modifyIssue(id: number, issue: Issue) {
     const oIssue = this.getIssue(id);
+    issue.id = id;
     Object.assign(oIssue, issue);
   }
 }
