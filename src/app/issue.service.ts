@@ -14,6 +14,7 @@ export class IssueService {
       description: 'Valami leírás',
       status: 'NEW',
       updated_at: '2018-11-11',
+      created_at: '2018-11-11',
     },
     {
       id: 2,
@@ -21,21 +22,24 @@ export class IssueService {
       place: 'PC7',
       description: 'Valami leírás',
       status: 'DOING',
-      updated_at: '2018-11-11'
+      updated_at: '2018-11-11',
+      created_at: '2018-11-11',
     },{
       id: 3,
       title: 'Rossz a gép',
       place: 'PC8',
       description: 'Valami leírás',
       status: 'DOING',
-      updated_at: '2018-11-11'
+      updated_at: '2018-11-11',
+      created_at: '2018-11-11',
     },{
       id: 4,
       title: 'Rossz a gép',
       place: 'PC9',
       description: 'Valami leírás',
       status: 'DONE',
-      updated_at: '2018-11-11'
+      updated_at: '2018-11-11',
+      created_at: '2018-11-11',
     },
   ]
 
