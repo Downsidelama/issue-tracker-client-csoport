@@ -22,7 +22,7 @@
   <mat-form-field>
     <textarea matInput placeholder="Description" formControlName="description"></textarea>
   </mat-form-field>
-  <mat-form-field>
+  <mat-form-field *ngIf="showStatus">
     <mat-select placeholder="Status" formControlName="status"
       required
     >
@@ -35,9 +35,9 @@
     </mat-error>
   </mat-form-field>
 
-  <button mat-flat-button color="primary" 
+  <button mat-flat-button color="primary"
     type="submit"
-    [disabled]="issueForm.invalid"  
+    [disabled]="issueForm.invalid"
   >Save</button>
 
 </form>

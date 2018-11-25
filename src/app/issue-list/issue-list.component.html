@@ -4,12 +4,9 @@
   (change)="onFilterChange($event)"
 ></status-filter>
 
-<p>
-{{ selectedIssue | json }}
-</p>
 <mat-nav-list>
   <a *ngFor="let issue of filteredIssues" mat-list-item
-    (click)="selectedIssue = issue" 
+    (click)="selectedIssue = issue"
     [class.selected]="issue === selectedIssue"
     [routerLink]="['/issues', issue.id, 'edit']"
   >

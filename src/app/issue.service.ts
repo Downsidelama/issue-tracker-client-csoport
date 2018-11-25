@@ -54,4 +54,9 @@ export class IssueService {
     issue.id = id;
     Object.assign(oIssue, issue);
   }
+
+  addIssue(issue: Issue) {
+    issue.id = this.issues.length + 1;
+    this.issues.push(issue);
+  }
 }

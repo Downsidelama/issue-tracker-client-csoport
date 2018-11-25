@@ -14,10 +14,10 @@ const routes: Routes = [
     path: 'issues',
     component: IssueListComponent
   },
-  // {
-  //   path: 'issues/new',
-  //   component: IssueFormComponent
-  // },
+  {
+    path: 'issues/add',
+    component: IssueEditComponent
+  },
   // {
   //   path: 'issues/:id',
   //   component: IssueDetailComponent

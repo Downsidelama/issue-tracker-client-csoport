@@ -16,6 +16,7 @@ export class IssueFormComponent implements OnInit, OnChanges {
     status: ['', [Validators.required]],
   });
   @Input() issue: Issue;
+  @Input() showStatus = false;
   @Output() save = new EventEmitter<Issue>();
 
   get title() { return this.issueForm.get('title'); }
@@ -28,7 +29,7 @@ export class IssueFormComponent implements OnInit, OnChanges {
   ) { }
 
   ngOnInit() {}
-  
+
   ngOnChanges() {
     this.issueForm.patchValue(this.issue);
   }
