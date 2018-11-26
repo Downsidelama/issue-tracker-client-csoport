@@ -22,21 +22,21 @@ export class IssueEditComponent implements OnInit {
     private router: Router
   ) { }
 
-  ngOnInit() {
+  async ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
       this.id = +id;
-      this.issue = this.issueService.getIssue(this.id);
+      this.issue = await this.issueService.getIssue(this.id);
       this.title = 'Edit issue';
     }
   }
 
-  onFormSave(issue: Issue) {
+  async onFormSave(issue: Issue) {
     if (this.id) {
-      this.issueService.modifyIssue(this.id, issue)
+      await this.issueService.modifyIssue(this.id, issue)
       this.location.back();
     } else {
-      this.issueService.addIssue(issue);
+      await this.issueService.addIssue(issue);
       this.router.navigate(['/issues']);
     }
   }

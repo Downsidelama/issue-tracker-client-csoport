@@ -18,11 +18,11 @@ export class IssueDetailComponent implements OnInit {
     private issueService: IssueService,
   ) { }
 
-  ngOnInit() {
+  async ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
       this.id = +id;
-      this.issue = this.issueService.getIssue(this.id);
+      this.issue = await this.issueService.getIssue(this.id);
     }
   }
 

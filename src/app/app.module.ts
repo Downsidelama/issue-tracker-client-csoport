@@ -22,6 +22,7 @@ import { IssueFormComponent } from './issue-form/issue-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { IssueEditComponent } from './issue-edit/issue-edit.component';
 import { IssueDetailComponent } from './issue-detail/issue-detail.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { IssueDetailComponent } from './issue-detail/issue-detail.component';
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
-    MatSelectModule
+    MatSelectModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
