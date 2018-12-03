@@ -3,4 +3,5 @@
 <issue-form
   [issue]="issue"
   (save)="onFormSave($event)"
+  [showStatus]="authService.user.role === 'ROLE_ADMIN'"
 ></issue-form>

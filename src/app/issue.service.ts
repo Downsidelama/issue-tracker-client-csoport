@@ -1,13 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Issue } from './issue';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
-const httpOptions = {
-  headers: new HttpHeaders({ 
-    'Content-Type': 'application/json',
-    'Authorization': 'Basic YWRtaW46cGFzc3dvcmQ=', // admin/password
-  })
-};
+import { httpOptions } from "./auth.service";
 
 @Injectable({
   providedIn: 'root'
@@ -15,43 +9,6 @@ const httpOptions = {
 export class IssueService {
 
   private issueUrl = 'http://localhost:8080/issues';
-
-  issues: Issue[] = [
-    {
-      id: 1,
-      title: 'Rossz a gép',
-      place: 'PC6',
-      description: 'Valami leírás',
-      status: 'NEW',
-      updated_at: '2018-11-11',
-      created_at: '2018-11-11',
-    },
-    {
-      id: 2,
-      title: 'Rossz a gép',
-      place: 'PC7',
-      description: 'Valami leírás',
-      status: 'DOING',
-      updated_at: '2018-11-11',
-      created_at: '2018-11-11',
-    },{
-      id: 3,
-      title: 'Rossz a gép',
-      place: 'PC8',
-      description: 'Valami leírás',
-      status: 'DOING',
-      updated_at: '2018-11-11',
-      created_at: '2018-11-11',
-    },{
-      id: 4,
-      title: 'Rossz a gép',
-      place: 'PC9',
-      description: 'Valami leírás',
-      status: 'DONE',
-      updated_at: '2018-11-11',
-      created_at: '2018-11-11',
-    },
-  ]
 
   constructor(
     private http: HttpClient

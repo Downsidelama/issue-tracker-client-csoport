@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { IssueService } from '../issue.service';
 import { Issue } from '../issue';
 import { Location } from '@angular/common';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'issue-edit',
@@ -19,7 +20,8 @@ export class IssueEditComponent implements OnInit {
     private route: ActivatedRoute,
     private issueService: IssueService,
     private location: Location,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) { }
 
   async ngOnInit() {

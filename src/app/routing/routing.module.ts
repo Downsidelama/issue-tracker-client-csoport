@@ -5,6 +5,8 @@ import { IssueListComponent } from "../issue-list/issue-list.component";
 import { MainPageComponent } from '../main-page/main-page.component';
 import { IssueEditComponent } from '../issue-edit/issue-edit.component';
 import { IssueDetailComponent } from '../issue-detail/issue-detail.component';
+import { AuthGuard } from '../auth.guard';
+import { LoginComponent } from '../login/login.component';
 
 const routes: Routes = [
   {
@@ -13,20 +15,31 @@ const routes: Routes = [
   },
   {
     path: 'issues',
-    component: IssueListComponent
+    component: IssueListComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'issues/add',
-    component: IssueEditComponent
+    component: IssueEditComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'issues/:id',
-    component: IssueDetailComponent
+    component: IssueDetailComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'issues/:id/edit',
-    component: IssueEditComponent
+    component: IssueEditComponent,
+    canActivate: [AuthGuard],
+    data: {
+      roles: ['ROLE_ADMIN']
+    }
   },
+  {
+    path: 'login',
+    component: LoginComponent
+  }
 ];
 
 @NgModule({
